@@ -19,7 +19,7 @@ class MainActivity3 : AppCompatActivity() {
 
     private  fun fabCallBack (){
         binding.FAB.setOnClickListener {
-            Toast.makeText(this , "Hello Mohamed Elkerm" , Toast.LENGTH_SHORT)
+            Toast.makeText(this , "Hello Mohamed Elkerm" , Toast.LENGTH_SHORT).show()
         }
     }
 }
