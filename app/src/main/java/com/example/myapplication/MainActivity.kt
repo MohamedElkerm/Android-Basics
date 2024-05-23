@@ -4,18 +4,13 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.ui.AppBarConfiguration
+import com.bumptech.glide.Glide
 import com.example.myapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -34,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         makeCall()
 
         initSpinner()
+        loadImage()
 
     }
 
@@ -55,6 +51,14 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+    }
+
+
+    private fun loadImage() {
+        val url: String = "https://wallpapers.com/images/high/yellow-light-on-the-batman-b67beech97idnbjk.webp"
+
+        Glide.with(this).load(url).placeholder(R.drawable.ic_launcher_foreground)
+            .error(R.drawable.ic_launcher_foreground).into(binding.imgViewNetwork)
     }
 
 
