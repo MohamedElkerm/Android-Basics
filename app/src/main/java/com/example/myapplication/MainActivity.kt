@@ -33,7 +33,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
     private fun initSpinner(){
         val items = listOf("A" , "B" , "C" , "D" , "E")
         val myAdapter = ArrayAdapter(this , R.layout.spinner_items , items)
@@ -61,32 +60,11 @@ class MainActivity : AppCompatActivity() {
             .error(R.drawable.ic_launcher_foreground).into(binding.imgViewNetwork)
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     private fun buttonGoToNextPage(){
         binding.navigateToNextPage.setOnClickListener {
 
             // explicit Intent
-            val intent=Intent(this,MainActivity2::class.java)
+            val intent=Intent(this,MainActivity3::class.java)
 
 
             // implicit Intent
