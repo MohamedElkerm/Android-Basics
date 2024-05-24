@@ -2,6 +2,8 @@ package com.example.myapplication
 
 import android.content.DialogInterface
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -21,44 +23,73 @@ class MainActivity3 : AppCompatActivity() {
         setContentView(binding.root)
 
         fabCallBack()
-        initFrag()
-        addNavAction()
+//        initFrag()
+//        addNavAction()
     }
 
-    private  fun initFrag(){
-        trans.add(R.id.fragId , fragTwo)
-        trans.commit()
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.action_bar_menu , menu)
+        return true
     }
 
-
-    private fun addNavAction(){
-        binding.bottomNavBar.setOnItemSelectedListener { item ->
-            when(item.itemId){
-                R.id.pageHome -> {
-                    trans.remove(fragTwo)
-                    trans.add(R.id.fragId , fragOne)
-                    trans.commit()
-                    true
-                }
-
-                R.id.pageMusic -> {
-                    trans.remove(fragOne)
-                    trans.add(R.id.fragId , fragTwo)
-                    trans.commit()
-                    true
-                }
-
-                R.id.pageProfile -> {
-                    trans.remove(fragTwo)
-                    trans.add(R.id.fragId , fragOne)
-                    trans.commit()
-                    true
-                }
-                else -> false
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.action_delete ->{
+                Toast.makeText(this , "deleted" , Toast.LENGTH_SHORT).show()
+                return true
             }
 
+            R.id.action_settings ->{
+                Toast.makeText(this , "setting" , Toast.LENGTH_SHORT).show()
+                return true
+            }
+
+            R.id.actione_person ->{
+                Toast.makeText(this , "person" , Toast.LENGTH_SHORT).show()
+                return true
+            }
         }
+        return super.onOptionsItemSelected(item)
     }
+
+
+
+
+
+//    private  fun initFrag(){
+//        trans.add(R.id.fragId , fragTwo)
+//        trans.commit()
+//    }
+
+
+//    private fun addNavAction(){
+//        binding.bottomNavBar.setOnItemSelectedListener { item ->
+//            when(item.itemId){
+//                R.id.pageHome -> {
+//                    trans.remove(fragTwo)
+//                    trans.add(R.id.fragId , fragOne)
+//                    trans.commit()
+//                    true
+//                }
+//
+//                R.id.pageMusic -> {
+//                    trans.remove(fragOne)
+//                    trans.add(R.id.fragId , fragTwo)
+//                    trans.commit()
+//                    true
+//                }
+//
+//                R.id.pageProfile -> {
+//                    trans.remove(fragTwo)
+//                    trans.add(R.id.fragId , fragOne)
+//                    trans.commit()
+//                    true
+//                }
+//                else -> false
+//            }
+//
+//        }
+//    }
     private  fun fabCallBack (){
         binding.FAB.setOnClickListener {
             showMyDialog()
