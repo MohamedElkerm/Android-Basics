@@ -1,9 +1,10 @@
 package com.example.myapplication
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.DialogInterface
 import android.os.Bundle
 import android.widget.Toast
-import androidx.fragment.app.FragmentTransaction
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.databinding.ActivityMain3Binding
 
 class MainActivity3 : AppCompatActivity() {
@@ -60,7 +61,36 @@ class MainActivity3 : AppCompatActivity() {
     }
     private  fun fabCallBack (){
         binding.FAB.setOnClickListener {
-            Toast.makeText(this , "Hello Mohamed Elkerm" , Toast.LENGTH_SHORT).show()
+            showMyDialog()
+        }
+    }
+
+    private fun showMyDialog() {
+        val builder = AlertDialog.Builder(this)
+        builder.apply {
+            setTitle("Title")
+            setMessage("message")
+            setPositiveButton(
+                "yes",
+                DialogInterface.OnClickListener { dialogInterface, i ->
+                    Toast.makeText(
+                        this@MainActivity3,
+                        "yes",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                })
+
+            setNegativeButton(
+                "No",
+                DialogInterface.OnClickListener { dialogInterface, i ->  Toast.makeText(
+                    this@MainActivity3,
+                    "No",
+                    Toast.LENGTH_SHORT
+                ).show()}
+            )
+
+            val dialog = builder.create()
+            dialog.show()
         }
     }
 }

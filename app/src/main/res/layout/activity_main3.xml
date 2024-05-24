@@ -18,29 +18,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/bottomNavBar"/>
 
-    <androidx.cardview.widget.CardView
-            android:id="@+id/cardViewId"
-
-            app:cardElevation="18dp"
-            
-            android:layout_margin="15dp"
-            app:cardCornerRadius="18dp"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-        <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/a"/>
-    </androidx.cardview.widget.CardView>
 
     <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense"
             app:endIconMode="password_toggle"
             android:id="@+id/textFieldUsingMaterialDesign"
-            app:layout_constraintTop_toBottomOf="@+id/cardViewId"
+            app:layout_constraintTop_toTopOf="parent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Name"
@@ -63,12 +46,15 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-        <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="elkerm"/>
-        <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="mohamed"/>
-        <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="adel"/>
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.094">
+        <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                               android:text="elkerm"/>
+        <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                               android:text="mohamed"/>
+        <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                               android:text="adel"/>
     </com.google.android.material.chip.ChipGroup>
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
 
             app:menu="@menu/main_bottom_nav"
@@ -78,15 +64,7 @@
             android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
-    <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragId"
-            app:layout_constraintTop_toBottomOf="@+id/textFieldUsingMaterialDesign"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            app:layout_constraintBottom_toTopOf="@+id/chipsGroup"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"/>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
