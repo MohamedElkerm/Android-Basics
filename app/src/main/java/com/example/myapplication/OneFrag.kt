@@ -14,12 +14,66 @@ class OneFrag : Fragment() {
 
     lateinit var binding:FragOneBinding
 
-    val TAG:String = "testStateElkerm"
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragOneBinding.inflate(inflater , container , false)
 
         return binding.root
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    val TAG:String = "testStateElkerm"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
