@@ -1,14 +1,14 @@
 package com.example.myapplication.adapter
 
-import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.example.myapplication.OneFrag
 import com.example.myapplication.TwoFrag
+import com.example.myapplication.data_class.Dogs
 
 internal class MyAdapter(
-    var context: Context,
+    var context: ArrayList<Dogs>,
     fm: FragmentManager,
     var totalTabs: Int) : FragmentPagerAdapter(fm) {
     override fun getCount(): Int {

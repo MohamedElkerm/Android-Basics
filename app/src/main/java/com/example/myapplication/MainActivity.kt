@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
         binding.navigateToNextPage.setOnClickListener {
 
             // explicit Intent
-            val intent=Intent(this,MainActivity5::class.java)
+            val intent=Intent(this,MainActivity6::class.java)
 
 
             // implicit Intent
