@@ -1,6 +1,8 @@
 package com.example.myapplication
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -15,23 +17,70 @@ import com.example.myapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
         Log.d("ELKERM", "onCreate: ")
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         buttonGoToNextPage()
-        makeCall()
-
+//        makeCall()
+        cacheThePhoneNumber()
         initSpinner()
         loadImage()
+        getTheCachingPhoneNumber()
+
+
 
     }
+
+    private  fun cacheThePhoneNumber(){
+        binding.makeCall.setOnClickListener {
+            val sharedPreferences :SharedPreferences = getSharedPreferences("myData" , Context.MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+
+            editor.putString("phoneNumber" , binding.editTextPhone.text.toString())
+            editor.apply()
+            Toast.makeText(this , "cached successfully" , Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private  fun getTheCachingPhoneNumber(){
+        binding.getData.setOnClickListener {
+            val sharedPreferences :SharedPreferences = getSharedPreferences("myData" , Context.MODE_PRIVATE)
+            val cachedPhoneNumber = sharedPreferences.getString("phoneNumber" , "")
+            Toast.makeText(this , cachedPhoneNumber , Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     private fun initSpinner(){
         val items = listOf("A" , "B" , "C" , "D" , "E")
@@ -75,6 +124,8 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
+
+
 
 
 
