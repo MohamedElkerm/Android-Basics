@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.ui.AppBarConfiguration
 import com.bumptech.glide.Glide
 import com.example.myapplication.databinding.ActivityMainBinding
+import java.io.File
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,33 +27,78 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         buttonGoToNextPage()
 //        makeCall()
-        cacheThePhoneNumber()
+//        cacheThePhoneNumber()
         initSpinner()
         loadImage()
-        getTheCachingPhoneNumber()
+//        getTheCachingPhoneNumber()
 
 
+        addListener()
 
     }
 
-    private  fun cacheThePhoneNumber(){
-        binding.makeCall.setOnClickListener {
-            val sharedPreferences :SharedPreferences = getSharedPreferences("myData" , Context.MODE_PRIVATE)
-            val editor = sharedPreferences.edit()
 
-            editor.putString("phoneNumber" , binding.editTextPhone.text.toString())
-            editor.apply()
-            Toast.makeText(this , "cached successfully" , Toast.LENGTH_SHORT).show()
+    private  fun addListener(){
+        binding.saveData.setOnClickListener {
+            val text = binding.editTextPhone.text.toString()
+            saveTextToFile(text)
+            Toast.makeText(this , "data saved correctly" , Toast.LENGTH_SHORT).show()
         }
+
     }
 
-    private  fun getTheCachingPhoneNumber(){
-        binding.getData.setOnClickListener {
-            val sharedPreferences :SharedPreferences = getSharedPreferences("myData" , Context.MODE_PRIVATE)
-            val cachedPhoneNumber = sharedPreferences.getString("phoneNumber" , "")
-            Toast.makeText(this , cachedPhoneNumber , Toast.LENGTH_SHORT).show()
-        }
+
+    private  fun saveTextToFile(text :String){
+        val path = applicationInfo.dataDir
+        val fileName = "sample.txt"
+        val file = File("$path/$fileName")
+        file.writeText(text)
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    private  fun cacheThePhoneNumber(){
+//        binding.makeCall.setOnClickListener {
+//            val sharedPreferences :SharedPreferences = getSharedPreferences("myData" , Context.MODE_PRIVATE)
+//            val editor = sharedPreferences.edit()
+//
+//            editor.putString("phoneNumber" , binding.editTextPhone.text.toString())
+//            editor.apply()
+//            Toast.makeText(this , "cached successfully" , Toast.LENGTH_SHORT).show()
+//        }
+//    }
+
+//    private  fun getTheCachingPhoneNumber(){
+//        binding.saveData.setOnClickListener {
+//            val sharedPreferences :SharedPreferences = getSharedPreferences("myData" , Context.MODE_PRIVATE)
+//            val cachedPhoneNumber = sharedPreferences.getString("phoneNumber" , "")
+//            Toast.makeText(this , cachedPhoneNumber , Toast.LENGTH_SHORT).show()
+//        }
+//    }
 
 
 
