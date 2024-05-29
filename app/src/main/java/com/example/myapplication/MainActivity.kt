@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         insertDataToDataBase()
         getDataFromDB()
+        buttonGoToNextPage()
 
     }
 
@@ -263,21 +264,21 @@ class MainActivity : AppCompatActivity() {
 //            .error(R.drawable.ic_launcher_foreground).into(binding.imgViewNetwork)
 //    }
 //
-//    private fun buttonGoToNextPage(){
-//        binding.navigateToNextPage.setOnClickListener {
-//
-//            // explicit Intent
-//            val intent=Intent(this,MainActivity6::class.java)
-//
-//
-//            // implicit Intent
-////            val intent=Intent(Intent.ACTION_VIEW)
-////            intent.data = Uri.parse("https://developer.android.com/guide/components/activities/activity-lifecycle")
-//
-//            startActivity(intent)
-//
-//        }
-//    }
+    private fun buttonGoToNextPage(){
+        binding.navigateToNextPage.setOnClickListener {
+
+            // explicit Intent
+            val intent=Intent(this,MainActivity7::class.java)
+
+
+            // implicit Intent
+//            val intent=Intent(Intent.ACTION_VIEW)
+//            intent.data = Uri.parse("https://developer.android.com/guide/components/activities/activity-lifecycle")
+
+            startActivity(intent)
+
+        }
+    }
 //
 //
 //
