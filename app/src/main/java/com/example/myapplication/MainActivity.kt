@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         databaseHelper = ArticleDbHelper(applicationContext)
 
         insertDataToDataBase()
-
+        getDataFromDB()
 
     }
 
@@ -55,7 +55,23 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    private fun getDataFromDB(){
+        binding.getDataFromDatabase.setOnClickListener {
+            readData()
+        }
+    }
 
+
+    private fun readData(){
+        val cursor = databaseHelper.readableDatabase.rawQuery("SELECT * FROM ${DB.TABLE_NAME}" , arrayOf<String>())
+
+        while (cursor.moveToNext()){
+            val id = cursor.getInt(0)
+            val title = cursor.getString(1)
+            val body = cursor.getString(2)
+            Log.d("ELKERM", "readData: id=$id , title = $title , body = $body")
+        }
+    }
 
 
 
