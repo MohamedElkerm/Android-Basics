@@ -7,5 +7,34 @@
         android:fitsSystemWindows="true"
         tools:context=".MainActivity" tools:visibility="visible" android:visibility="visible">
 
+    <EditText
+            android:layout_margin="16dp"
+            android:padding="8dp"
+            android:id="@+id/title"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+    />
+
+    <EditText
+            android:layout_margin="16dp"
+            android:layout_marginTop="24dp"
+            android:id="@+id/body"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+    />
+
+    <Button
+            android:text="@string/add_to_database"
+            android:layout_margin="24dp"
+            android:gravity="center"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/body"
+            android:id="@+id/addToDataBase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
